@@ -26,7 +26,7 @@ bd_addr = "B4:F1:DA:2A:84:86"
 port = 1
 server_socket.bind(("",port))
 server_socket.listen(1)
-server_socket.connect(bd_addr, port)
+server_socket.connect((bd_addr, port))
 
 client_socket,address = server_socket.accept()
 threads = []
