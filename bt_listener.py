@@ -28,28 +28,6 @@ server_socket.listen(1)
 client_socket,address = server_socket.accept()
 threads = []
 
-print "Accepted connection from ",address
-while 1:
-	data = client_socket.recv(1024)
-	print "Received: %s" % data
-	if (data == "0"):    #if '0' is sent from the Android App, turn OFF the LED
-		print ("GPIO 21 LOW, LED OFF")
-		GPIO.output(LED,0)
-	if (data == "1"):    #if '1' is sent from the Android App, turn OFF the LED
-		print ("GPIO 21 HIGH, LED ON")
-		GPIO.output(LED,1)
-		t = threading.Thread(target=vidworker)
-		threads.append(t)
-		t.start()
-	if (data == "2"):
-		print ("Recording Data!")	
-		t2 = threading.Thread(target=altworker)
-		threads.append(t2)
-		t2.start()
-	if (data == "q"):
-		print ("Quit")
-		break
-
 def altworker():
 	"""thread worker function"""
 	f = open("bt-activated-data-recording.txt","w") 
@@ -74,4 +52,26 @@ def vidworker():
 	camera.wait_recording(300)
 	camera.stop_recording()
 	return
+
+print "Accepted connection from ",address
+while 1:
+	data = client_socket.recv(1024)
+	print "Received: %s" % data
+	if (data == "0"):    #if '0' is sent from the Android App, turn OFF the LED
+		print ("GPIO 21 LOW, LED OFF")
+		GPIO.output(LED,0)
+	if (data == "1"):    #if '1' is sent from the Android App, turn OFF the LED
+		print ("GPIO 21 HIGH, LED ON")
+		GPIO.output(LED,1)
+		t = threading.Thread(target=vidworker)
+		threads.append(t)
+		t.start()
+	if (data == "2"):
+		print ("Recording Data!")	
+		t2 = threading.Thread(target=altworker)
+		threads.append(t2)
+		t2.start()
+	if (data == "q"):
+		print ("Quit")
+		break
 
