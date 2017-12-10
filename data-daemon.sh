@@ -6,7 +6,7 @@
 # @reboot sh /home/pi/scripts/data-daemon.sh >/home/pi/logs/cronlog 2>&1
 
 cd /
-cd home/pi/scripts
+cd home/pi/rocketry
 echo "Sleeping for 20 then running python record_altitude.py"
 sleep 20
 echo "Starting Data Recording"
