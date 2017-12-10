@@ -6,10 +6,10 @@
 # @reboot sh /home/pi/bbt/launcher.sh >/home/pi/logs/cronlog 2>&1
 
 cd /
-cd home/pi/scripts
-echo "Sleeping for 20 then running python record.py"
+cd home/pi/rocketry
+echo "Sleeping for 20 then running python record_video.py"
 sleep 20
 echo "Starting Camera Recording"
-sudo python record_video.py
+sudo python3 record_video.py
 echo "Recording Finished"
 cd /
