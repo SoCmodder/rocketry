@@ -26,7 +26,6 @@ bd_addr = "B4:F1:DA:2A:84:86"
 port = 1
 server_socket.bind(("",port))
 server_socket.listen(1)
-server_socket.connect((bd_addr, port))
 
 client_socket,address = server_socket.accept()
 threads = []
@@ -65,6 +64,7 @@ while 1:
 		GPIO.output(LED,0)
 	if (data == "1"):    #if '1' is sent from the Android App, turn OFF the LED
 		GPIO.output(LED,1)
+		server_socket.connect((bd_addr, 2))
 		server_socket.send("Recording Video!")
 		t = threading.Thread(target=vidworker)
 		threads.append(t)
