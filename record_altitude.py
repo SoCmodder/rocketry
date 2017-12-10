@@ -10,7 +10,7 @@ sensor = BMP280.BMP280()
 
 # Open File
 i = 0
-f = open(“data.txt”,”w”) 
+f = open("data.txt","w") 
 
 for i in range(0, 300):
 	f.write('Temp = {0:0.2f} *C'.format(sensor.read_temperature()))
