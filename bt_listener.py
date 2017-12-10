@@ -1,5 +1,5 @@
 import picamera
-from bluetooth import *
+import bluetooth
 import RPi.GPIO as GPIO        #calling for header file which helps in using GPIOs of PI
 import datetime
 import time
