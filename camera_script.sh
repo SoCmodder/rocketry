@@ -7,8 +7,8 @@
 
 cd /
 cd home/pi/rocketry
-echo "Sleeping for 20 then running python record_video.py"
-sleep 20
+echo "Sleeping for 5 then running python record_video.py"
+sleep 5
 echo "Starting Camera Recording"
 sudo python3 record_video.py
 echo "Recording Finished"

@@ -7,8 +7,8 @@
 
 cd /
 cd home/pi/rocketry
-echo "Sleeping for 20 then running python record_altitude.py"
-sleep 20
+echo "Sleeping for 5 then running python record_altitude.py"
+sleep 5
 echo "Starting Data Recording"
 sudo python record_altitude.py
 echo "Data Recording Finished"
