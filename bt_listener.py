@@ -30,7 +30,6 @@ threads = []
 
 print "Accepted connection from ",address
 while 1:
-
 	data = client_socket.recv(1024)
 	print "Received: %s" % data
  	if (data == "0"):    #if '0' is sent from the Android App, turn OFF the LED
@@ -54,7 +53,6 @@ while 1:
 def altworker():
     """thread worker function"""
     f = open("bt-activated-data-recording.txt","w") 
-
 	for i in range(0, 300):
 		f.write('======================================================================\n')
 		f.write('Timestamp: {:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now()) + '\n')
@@ -64,7 +62,6 @@ def altworker():
 		f.write('Sealevel Pressure = {0:0.2f} Pa'.format(sensor.read_sealevel_pressure()) + '\n')
 		f.write('======================================================================\n\n')
 		time.sleep(1)
-
 	#Save/Close the file
 	f.close()
     return 
