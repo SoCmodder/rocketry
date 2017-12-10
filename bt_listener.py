@@ -64,14 +64,13 @@ while 1:
 		GPIO.output(LED,0)
 	if (data == "1"):    #if '1' is sent from the Android App, turn OFF the LED
 		GPIO.output(LED,1)
-		server_socket.connect((bd_addr, 2))
-		server_socket.send("Recording Video!")
+		client_socket.send("Recording Video!")
 		t = threading.Thread(target=vidworker)
 		threads.append(t)
 		t.start()
 	if (data == "2"):
 		print ("Recording Data!")	
-		server_socket.send("Recording Data!")
+		client_socket.send("Recording Data!")
 		t2 = threading.Thread(target=altworker)
 		threads.append(t2)
 		t2.start()
