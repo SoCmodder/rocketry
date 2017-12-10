@@ -1,0 +1,150 @@
+Timestamp: 2017-12-10 16:46:05
+Temp = 21.37 *C
+Pressure = 101062.00 Pa
+Altitude = 22.17 m
+Sealevel Pressure = 101063.00 Pa
+Timestamp: 2017-12-10 16:46:07
+Temp = 21.38 *C
+Pressure = 101064.00 Pa
+Altitude = 21.92 m
+Sealevel Pressure = 101062.00 Pa
+Timestamp: 2017-12-10 16:46:08
+Temp = 21.37 *C
+Pressure = 101061.00 Pa
+Altitude = 22.00 m
+Sealevel Pressure = 101061.00 Pa
+Timestamp: 2017-12-10 16:46:09
+Temp = 21.38 *C
+Pressure = 101058.00 Pa
+Altitude = 22.25 m
+Sealevel Pressure = 101061.00 Pa
+Timestamp: 2017-12-10 16:46:10
+Temp = 21.37 *C
+Pressure = 101060.00 Pa
+Altitude = 22.25 m
+Sealevel Pressure = 101058.00 Pa
+Timestamp: 2017-12-10 16:46:11
+Temp = 21.37 *C
+Pressure = 101060.00 Pa
+Altitude = 22.25 m
+Sealevel Pressure = 101056.00 Pa
+Timestamp: 2017-12-10 16:46:12
+Temp = 21.38 *C
+Pressure = 101060.00 Pa
+Altitude = 22.34 m
+Sealevel Pressure = 101061.00 Pa
+Timestamp: 2017-12-10 16:46:13
+Temp = 21.38 *C
+Pressure = 101060.00 Pa
+Altitude = 22.17 m
+Sealevel Pressure = 101059.00 Pa
+Timestamp: 2017-12-10 16:46:14
+Temp = 21.38 *C
+Pressure = 101060.00 Pa
+Altitude = 22.00 m
+Sealevel Pressure = 101059.00 Pa
+Timestamp: 2017-12-10 16:46:15
+Temp = 21.38 *C
+Pressure = 101062.00 Pa
+Altitude = 22.09 m
+Sealevel Pressure = 101060.00 Pa
+Timestamp: 2017-12-10 16:46:17
+Temp = 21.38 *C
+Pressure = 101061.00 Pa
+Altitude = 22.09 m
+Sealevel Pressure = 101059.00 Pa
+Timestamp: 2017-12-10 16:46:18
+Temp = 21.38 *C
+Pressure = 101060.00 Pa
+Altitude = 22.09 m
+Sealevel Pressure = 101062.00 Pa
+Timestamp: 2017-12-10 16:46:19
+Temp = 21.38 *C
+Pressure = 101062.00 Pa
+Altitude = 22.00 m
+Sealevel Pressure = 101062.00 Pa
+Timestamp: 2017-12-10 16:46:20
+Temp = 21.37 *C
+Pressure = 101058.00 Pa
+Altitude = 22.17 m
+Sealevel Pressure = 101060.00 Pa
+Timestamp: 2017-12-10 16:46:21
+Temp = 21.38 *C
+Pressure = 101058.00 Pa
+Altitude = 22.17 m
+Sealevel Pressure = 101058.00 Pa
+Timestamp: 2017-12-10 16:46:22
+Temp = 21.38 *C
+Pressure = 101058.00 Pa
+Altitude = 22.09 m
+Sealevel Pressure = 101058.00 Pa
+Timestamp: 2017-12-10 16:46:23
+Temp = 21.38 *C
+Pressure = 101059.00 Pa
+Altitude = 22.09 m
+Sealevel Pressure = 101061.00 Pa
+Timestamp: 2017-12-10 16:46:24
+Temp = 21.38 *C
+Pressure = 101059.00 Pa
+Altitude = 22.25 m
+Sealevel Pressure = 101058.00 Pa
+Timestamp: 2017-12-10 16:46:25
+Temp = 21.38 *C
+Pressure = 101057.00 Pa
+Altitude = 22.42 m
+Sealevel Pressure = 101053.00 Pa
+Timestamp: 2017-12-10 16:46:27
+Temp = 21.38 *C
+Pressure = 101056.00 Pa
+Altitude = 22.34 m
+Sealevel Pressure = 101059.00 Pa
+Timestamp: 2017-12-10 16:46:28
+Temp = 21.38 *C
+Pressure = 101061.00 Pa
+Altitude = 22.09 m
+Sealevel Pressure = 101061.00 Pa
+Timestamp: 2017-12-10 16:46:29
+Temp = 21.38 *C
+Pressure = 101058.00 Pa
+Altitude = 22.09 m
+Sealevel Pressure = 101062.00 Pa
+Timestamp: 2017-12-10 16:46:30
+Temp = 21.38 *C
+Pressure = 101059.00 Pa
+Altitude = 22.25 m
+Sealevel Pressure = 101058.00 Pa
+Timestamp: 2017-12-10 16:46:31
+Temp = 21.37 *C
+Pressure = 101062.00 Pa
+Altitude = 22.09 m
+Sealevel Pressure = 101059.00 Pa
+Timestamp: 2017-12-10 16:46:32
+Temp = 21.38 *C
+Pressure = 101061.00 Pa
+Altitude = 22.17 m
+Sealevel Pressure = 101059.00 Pa
+Timestamp: 2017-12-10 16:46:33
+Temp = 21.38 *C
+Pressure = 101061.00 Pa
+Altitude = 22.00 m
+Sealevel Pressure = 101061.00 Pa
+Timestamp: 2017-12-10 16:46:34
+Temp = 21.38 *C
+Pressure = 101062.00 Pa
+Altitude = 21.92 m
+Sealevel Pressure = 101063.00 Pa
+Timestamp: 2017-12-10 16:46:35
+Temp = 21.38 *C
+Pressure = 101060.00 Pa
+Altitude = 22.17 m
+Sealevel Pressure = 101061.00 Pa
+Timestamp: 2017-12-10 16:46:37
+Temp = 21.38 *C
+Pressure = 101060.00 Pa
+Altitude = 21.84 m
+Sealevel Pressure = 101057.00 Pa
+Timestamp: 2017-12-10 16:46:38
+Temp = 21.38 *C
+Pressure = 101061.00 Pa
+Altitude = 21.75 m
+Sealevel Pressure = 101063.00 Pa
