@@ -18,6 +18,8 @@ GPIO.setwarnings(False)
 GPIO.setup(LED,GPIO.OUT)  #initialize GPIO21 (LED) as an output Pin
 GPIO.output(LED,0)
 
+camera = picamera.PiCamera()
+camera.resolution = (1280, 720)
 
 server_socket=bluetooth.BluetoothSocket( bluetooth.RFCOMM )
 
@@ -44,15 +46,15 @@ def altworker():
 		time.sleep(1)
 	#Save/Close the file
 	f.close()
+	client_socket.send("Finished Altitude Data Recording!\n")
 	return 
 
 def vidworker():
 	"""thread worker function"""
-	camera = picamera.PiCamera()
-	camera.resolution = (1280, 720)
 	camera.start_recording('bt-activated-video.h264')
-	camera.wait_recording(300)
+	camera.wait_recording(960)
 	camera.stop_recording()
+	client_socket.send("Finished Recording Video")
 	return
 
 print "Accepted connection from ",address
@@ -64,18 +66,20 @@ while 1:
 		GPIO.output(LED,0)
 	if (data == "1"):    #if '1' is sent from the Android App, turn OFF the LED
 		GPIO.output(LED,1)
-		client_socket.send("Recording Video!")
+		client_socket.send("Recording Video!\n")
 		t = threading.Thread(target=vidworker)
 		threads.append(t)
 		t.start()
 	if (data == "2"):
 		print ("Recording Data!")	
-		client_socket.send("Recording Data!")
+		client_socket.send("Recording Data!\n")
 		t2 = threading.Thread(target=altworker)
 		threads.append(t2)
-		t2.start()
+		t2.start()		
 	if (data == "q"):
 		print ("Quit")
+		camera.stop_recording()
+		client_socket.send("Video Recording Finished")
 		break
 
 client_socket.close()
