@@ -32,27 +32,27 @@ print "Accepted connection from ",address
 while 1:
 	data = client_socket.recv(1024)
 	print "Received: %s" % data
- 	if (data == "0"):    #if '0' is sent from the Android App, turn OFF the LED
- 		print ("GPIO 21 LOW, LED OFF")
- 		GPIO.output(LED,0)
- 	if (data == "1"):    #if '1' is sent from the Android App, turn OFF the LED
- 		print ("GPIO 21 HIGH, LED ON")
- 		GPIO.output(LED,1)
- 		t = threading.Thread(target=vidworker)
- 		threads.append(t)
- 		t.start()
- 	if (data == "2"):
- 		print ("Recording Data!")	
- 		t2 = threading.Thread(target=altworker)
- 		threads.append(t2)
- 		t2.start()
- 	if (data == "q"):
- 		print ("Quit")
- 		break
+	if (data == "0"):    #if '0' is sent from the Android App, turn OFF the LED
+		print ("GPIO 21 LOW, LED OFF")
+		GPIO.output(LED,0)
+	if (data == "1"):    #if '1' is sent from the Android App, turn OFF the LED
+		print ("GPIO 21 HIGH, LED ON")
+		GPIO.output(LED,1)
+		t = threading.Thread(target=vidworker)
+		threads.append(t)
+		t.start()
+	if (data == "2"):
+		print ("Recording Data!")	
+		t2 = threading.Thread(target=altworker)
+		threads.append(t2)
+		t2.start()
+	if (data == "q"):
+		print ("Quit")
+		break
 
 def altworker():
-    """thread worker function"""
-    f = open("bt-activated-data-recording.txt","w") 
+	"""thread worker function"""
+	f = open("bt-activated-data-recording.txt","w") 
 	for i in range(0, 300):
 		f.write('======================================================================\n')
 		f.write('Timestamp: {:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now()) + '\n')
@@ -64,14 +64,14 @@ def altworker():
 		time.sleep(1)
 	#Save/Close the file
 	f.close()
-    return 
+	return 
 
 def vidworker():
 	"""thread worker function"""
 	camera = picamera.PiCamera()
- 	camera.resolution = (1280, 720)
- 	camera.start_recording('bt-activated-video.h264')
- 	camera.wait_recording(300)
- 	camera.stop_recording()
- 	return
+	camera.resolution = (1280, 720)
+	camera.start_recording('bt-activated-video.h264')
+	camera.wait_recording(300)
+	camera.stop_recording()
+	return
 
