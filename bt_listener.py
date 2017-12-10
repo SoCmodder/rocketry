@@ -1,5 +1,5 @@
 import picamera
-import bluetooth
+from bluetooth import *
 import RPi.GPIO as GPIO        #calling for header file which helps in using GPIOs of PI
 import datetime
 import time
@@ -61,17 +61,21 @@ while 1:
 		print ("GPIO 21 LOW, LED OFF")
 		GPIO.output(LED,0)
 	if (data == "1"):    #if '1' is sent from the Android App, turn OFF the LED
-		print ("GPIO 21 HIGH, LED ON")
 		GPIO.output(LED,1)
+		server_socket.send("Recording Video!")
 		t = threading.Thread(target=vidworker)
 		threads.append(t)
 		t.start()
 	if (data == "2"):
 		print ("Recording Data!")	
+		server_socket.send("Recording Data!")
 		t2 = threading.Thread(target=altworker)
 		threads.append(t2)
 		t2.start()
 	if (data == "q"):
 		print ("Quit")
 		break
+
+client_socket.close()
+server_socket.close()
 
