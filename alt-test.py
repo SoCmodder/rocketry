@@ -11,7 +11,7 @@ sensor = BMP280.BMP280()
 
 # Open File
 i = 0
-f = open("data.txt","w") 
+f = open("test-data.txt","w") 
 
 for i in range(0, 30):
 	f.write('Timestamp: {:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now()) + '\n')
