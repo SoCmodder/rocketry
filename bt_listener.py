@@ -35,7 +35,7 @@ threads = []
 def altworker():
 	"""thread worker function"""
 	f = open("bt-activated-data-recording.txt","w") 
-	for i in range(0, 300):
+	for i in range(0, 960):
 		f.write('======================================================================\n')
 		f.write('Timestamp: {:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now()) + '\n')
 		f.write('Temp = {0:0.2f} *C'.format(sensor.read_temperature()) + '\n')
@@ -61,26 +61,23 @@ print "Accepted connection from ",address
 while 1:
 	data = client_socket.recv(1024)
 	print "Received: %s" % data
-	if (data == "0"):    #if '0' is sent from the Android App, turn OFF the LED
-		print ("GPIO 21 LOW, LED OFF")
-		GPIO.output(LED,0)
 	if (data == "1"):    #if '1' is sent from the Android App, turn OFF the LED
-		GPIO.output(LED,1)
 		client_socket.send("Recording Video!\n")
 		t = threading.Thread(target=vidworker)
 		threads.append(t)
 		t.start()
 	if (data == "2"):
-		print ("Recording Data!")	
 		client_socket.send("Recording Data!\n")
 		t2 = threading.Thread(target=altworker)
 		threads.append(t2)
 		t2.start()		
 	if (data == "q"):
 		print ("Quit")
-		camera.stop_recording()
-		client_socket.send("Video Recording Finished")
+		client_socket.send("Quit command accepted: Shutting Down All Recording!")
 		break
+
+camera.close()
+f.close()
 
 client_socket.close()
 server_socket.close()
