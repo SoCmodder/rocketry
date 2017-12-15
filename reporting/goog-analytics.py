@@ -5,7 +5,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 
 
 SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
-KEY_FILE_LOCATION = 'client_secrets.json'
+KEY_FILE_LOCATION = 'Rocketry-bcc1750008ce.json'
 VIEW_ID = '166451495'
 
 

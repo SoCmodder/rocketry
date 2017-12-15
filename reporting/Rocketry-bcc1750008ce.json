@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "rocketry-189019",
+  "private_key_id": "bcc1750008ce39662c04954de257e57c1002bd1c",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC0pVR8nBH1kx6p\n7D4d4xp/ZC9X5Xtx4/xfAZa/duBVs8Mkix/2AO5lLbEWtGUo6xtvMK1q4XmyavvC\nG0mLvmj1QxOGI7r46UOi2glpwP82ZzU4XxSFkVsnNWUn9rxGirz7DqgkB8VC/A79\nT6QIsCYJZxyOFERucvz/cGbl5IJltCEmmlutRs129hpkA9oPCfGOflBULyL5wFBp\nHjPhGRuHXo4MNV6qToRdE+gKAQB4rkVmJ5Xk0PXbFtZqFv9laCF2UrL8+Yl8lHgv\nryBIqMywXNjf+2Z9AYTPgAG9Pvni09jSzdF7puZebJDnuO+IxD3TDO0gIbCTGrPC\nFvVTQTvrAgMBAAECggEAC+Gl7W48dij/htCdg0y5JPDbdk4HMQX8RultV1mDxs9E\nggZOi1kjVO9M6v/heXABRW5vsYxz+yqzNWCjFThoYd1QDu4RsaZyBueNX/HMN3FR\nXExQprpZQvptlVPSrVcZt++OWpRSQqYefEW9Nb8UOWEZTTUDDTqt7kUf13YQp4y1\nnwUaQwIL/wC6H2e+gZKAfmFw/jlEgQnPFi89Z+WcEIe2UcShvFtZ6SZ+vbBYvIvL\nKnf4Tc9OBEt25Z/s9f2ycvX6Pezdg3y5hG39noG3id6OFCgQ/2Awn01S+KHFijm5\nSqMcgRCJGi2dZvhWy5kQL1HhVLdW2vLYsb05nH/W7QKBgQDi/LOYpsUgtVS/bnoQ\n26wexcSsGeoSnQabiCaxraMFXouS5XAhBYC0p9daRBGeYROboeJyr0ZYYWadS6lC\numXn6jvzwTRBq3m7nul82BS3f4iyAotmyoG1OcXUEI72FrekOHijBacuGN07YDk9\nsQuOxMved5/gvGTMAPWhlkC1xQKBgQDLvEi9BT2z8Ij345So2BVz8gjgBf3Au1/Q\nBTR3iEx8etrUV2JMC+ZLNYY0JJjqfMXi6fHi7sWhF5ts3zBh1g6U2Ymf6T324I+0\nY+cK1nEZdjDF/NEAxQwmNJkrzm+vdsBUDtyFyITNdhGKpgLINOmasSCArljMhoWz\nsbGQc3r17wKBgQDLLrj05BOA+9Aoq5PIk1q3EQDDrU7B6p2Hi5BXa76Jh+AYVhjQ\n9kQHclZrDpNW2j7bCUXSsuKdKlLYamnQuVmPBzUzNLa6Mex97fnDLwkcWKTb8zsl\ngBArUNOsyEWwMxWfgo06IE1ODiO6ip+ygVB/M9nqAdqzKPBxTEqTohO6oQKBgAei\njrdGswFDSl6/0JpjPqqRr3N1xgSrAPQyvbydBwDDOeArRivDZmX7I4RgurpO4ruW\nONJgUFexIsn5sz53XySE4ntzqjbOQ5RnCgmF78ccfsdsqgh1Wfc0kWjq25SfxqVf\nyTPaR9/LRO0FO6V1FiwN50HrRrijce9CAX2AVmNRAoGBAIrTPrTUBFnOfuJLlvXj\nHQTuPBXHY+Pab8P2wQJSQ2eeB0ZUi8Aa9zFRsxV1GBJ3KQpCf+mg8+5RPqzfl3Xj\ndOuBDadNKQxZnL/cYufbUhTOQmLlCPcIxajbjt1lT42+RWs3AqVlZyaZLgZ/npXC\nK+37Uc2aCbMjpK/XCKdpYIXL\n-----END PRIVATE KEY-----\n",
+  "client_email": "main-rocket-service-account@rocketry-189019.iam.gserviceaccount.com",
+  "client_id": "106192906953472868151",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/main-rocket-service-account%40rocketry-189019.iam.gserviceaccount.com"
+}
