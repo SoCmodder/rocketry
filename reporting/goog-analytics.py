@@ -1,99 +1,78 @@
-"""A simple example of how to access the Google Analytics API."""
-
-import argparse
+"""Hello Analytics Reporting API V4."""
 
 from apiclient.discovery import build
 from oauth2client.service_account import ServiceAccountCredentials
 
-import httplib2
-from oauth2client import client
-from oauth2client import file
-from oauth2client import tools
+
+SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
+KEY_FILE_LOCATION = 'client_secrets.json'
+VIEW_ID = '166451495'
 
 
-
-def get_service(api_name, api_version, scope, key_file_location):
-  """Get a service that communicates to a Google API.
-
-  Args:
-    api_name: The name of the api to connect to.
-    api_version: The api version to connect to.
-    scope: A list auth scopes to authorize for the application.
-    key_file_location: The path to a valid service account JSON key file.
+def initialize_analyticsreporting():
+  """Initializes an Analytics Reporting API V4 service object.
 
   Returns:
-    A service that is connected to the specified API.
+    An authorized Analytics Reporting API V4 service object.
   """
-
   credentials = ServiceAccountCredentials.from_json_keyfile_name(
-      key_file_location, scopes=scopes)
+      KEY_FILE_LOCATION, SCOPES)
 
   # Build the service object.
-  service = build(api_name, api_version, credentials=credentials)
+  analytics = build('analyticsreporting', 'v4', credentials=credentials)
 
-  return service
-
-
-def get_first_profile_id(service):
-  # Use the Analytics service object to get the first profile id.
-
-  # Get a list of all Google Analytics accounts for this user
-  accounts = service.management().accounts().list().execute()
-
-  if accounts.get('items'):
-    # Get the first Google Analytics account.
-    account = accounts.get('items')[0].get('id')
-
-    # Get a list of all the properties for the first account.
-    properties = service.management().webproperties().list(
-        accountId=account).execute()
-
-    if properties.get('items'):
-      # Get the first property id.
-      property = properties.get('items')[0].get('id')
-
-      # Get a list of all views (profiles) for the first property.
-      profiles = service.management().profiles().list(
-          accountId=account,
-          webPropertyId=property).execute()
-
-      if profiles.get('items'):
-        # return the first view (profile) id.
-        return profiles.get('items')[0].get('id')
-
-  return None
+  return analytics
 
 
-def get_results(service, profile_id):
-  # Use the Analytics Service Object to query the Core Reporting API
-  # for the number of sessions within the past seven days.
-  return service.data().ga().get(
-      ids='ga:' + profile_id,
-      start_date='7daysAgo',
-      end_date='today',
-      metrics='ga:sessions').execute()
+def get_report(analytics):
+  """Queries the Analytics Reporting API V4.
+
+  Args:
+    analytics: An authorized Analytics Reporting API V4 service object.
+  Returns:
+    The Analytics Reporting API V4 response.
+  """
+  return analytics.reports().batchGet(
+      body={
+        'reportRequests': [
+        {
+          'viewId': VIEW_ID,
+          'dateRanges': [{'startDate': '7daysAgo', 'endDate': 'today'}],
+          'metrics': [{'expression': 'ga:sessions'}],
+          'dimensions': [{'name': 'ga:country'}]
+        }]
+      }
+  ).execute()
 
 
-def print_results(results):
-  # Print data nicely for the user.
-  if results:
-    print 'View (Profile): %s' % results.get('profileInfo').get('profileName')
-    print 'Total Sessions: %s' % results.get('rows')[0][0]
+def print_response(response):
+  """Parses and prints the Analytics Reporting API V4 response.
 
-  else:
-    print 'No results found'
+  Args:
+    response: An Analytics Reporting API V4 response.
+  """
+  for report in response.get('reports', []):
+    columnHeader = report.get('columnHeader', {})
+    dimensionHeaders = columnHeader.get('dimensions', [])
+    metricHeaders = columnHeader.get('metricHeader', {}).get('metricHeaderEntries', [])
+
+    for row in report.get('data', {}).get('rows', []):
+      dimensions = row.get('dimensions', [])
+      dateRangeValues = row.get('metrics', [])
+
+      for header, dimension in zip(dimensionHeaders, dimensions):
+        print header + ': ' + dimension
+
+      for i, values in enumerate(dateRangeValues):
+        print 'Date range: ' + str(i)
+        for metricHeader, value in zip(metricHeaders, values.get('values')):
+          print metricHeader.get('name') + ': ' + value
 
 
 def main():
-  # Define the auth scopes to request.
-  scope = ['https://www.googleapis.com/auth/analytics.readonly']
-  key_file_location = 'client_secrets.json'
-
-  # Authenticate and construct service.
-  service = get_service('analytics', 'v3', scope, key_file_location)
-  profile = get_first_profile_id(service)
-  print_results(get_results(service, profile))
-
+  analytics = initialize_analyticsreporting()
+  response = get_report(analytics)
+  print_response(response)
 
 if __name__ == '__main__':
   main()
