@@ -91,7 +91,7 @@ def main():
 
   # Authenticate and construct service.
   service = get_service('analytics', 'v3', scope, key_file_location,
-    service_account_email)
+    "socmodder@gmail.com")
   profile = get_first_profile_id(service)
   print_results(get_results(service, profile))
 
