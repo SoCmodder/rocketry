@@ -90,8 +90,7 @@ def main():
   key_file_location = 'client_secrets.json'
 
   # Authenticate and construct service.
-  service = get_service('analytics', 'v3', scope, key_file_location,
-    "socmodder@gmail.com")
+  service = get_service('analytics', 'v3', scope, key_file_location)
   profile = get_first_profile_id(service)
   print_results(get_results(service, profile))
 
