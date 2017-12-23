@@ -58,6 +58,9 @@ def vidworker():
 	return
 
 print "Accepted connection from ",address
+
+initAlt = sensor.read_altitude()
+
 while 1:
 	data = client_socket.recv(1024)
 	print "Received: %s" % data
@@ -75,6 +78,7 @@ while 1:
 		print ("Quit")
 		client_socket.send("Quit command accepted: Shutting Down All Recording!")
 		break
+	client_socket.send('Altitude = {0:0.2f} m'.format(sensor.read_altitude() - initAlt) + '\n')
 
 camera.close()
 f.close()
