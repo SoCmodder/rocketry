@@ -1,5 +1,5 @@
 import picamera
-import bluetooth
+from bluetooth import *
 import RPi.GPIO as GPIO        #calling for header file which helps in using GPIOs of PI
 import datetime
 import time
@@ -21,15 +21,25 @@ GPIO.output(LED,0)
 camera = picamera.PiCamera()
 camera.resolution = (1280, 720)
 
-server_socket=bluetooth.BluetoothSocket( bluetooth.RFCOMM )
+server_socket=BluetoothSocket( RFCOMM )
 
 bd_addr = "B4:F1:DA:2A:84:86"
 
 port = 1
-server_socket.bind(("",port))
+server_socket.bind(("",PORT_ANY))
 server_socket.listen(1)
 
 client_socket,address = server_socket.accept()
+
+uuid = "fa87c0d0-afac-11de-8a39-0800200c9a66"
+
+advertise_service( server_sock, "RSV",
+                   service_id = uuid,
+                   service_classes = [ uuid, SERIAL_PORT_CLASS ],
+                   profiles = [ SERIAL_PORT_PROFILE ], 
+#                   protocols = [ OBEX_UUID ] 
+                    )
+
 threads = []
 
 def altworker():
