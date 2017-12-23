@@ -23,13 +23,9 @@ camera.resolution = (1280, 720)
 
 server_socket=BluetoothSocket( RFCOMM )
 
-bd_addr = "B4:F1:DA:2A:84:86"
-
 port = 1
 server_socket.bind(("",PORT_ANY))
 server_socket.listen(1)
-
-client_socket,address = server_socket.accept()
 
 uuid = "fa87c0d0-afac-11de-8a39-0800200c9a66"
 
@@ -71,7 +67,10 @@ print "Accepted connection from ",address
 
 initAlt = sensor.read_altitude()
 
-while 1:
+while True:
+
+	client_socket,address = server_socket.accept()
+
 	data = client_socket.recv(1024)
 	print "Received: %s" % data
 	if (data == "1"):    #if '1' is sent from the Android App, turn OFF the LED
