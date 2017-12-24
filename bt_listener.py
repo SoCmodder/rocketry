@@ -58,29 +58,37 @@ initAlt = sensor.read_altitude()
  
 client_socket,address = server_socket.accept()
 print "Accepted connection from ",address
-while 1:
+
+try:
+	while 1:
  
-  data = client_socket.recv(1024)
-  print "Received: %s" % data
+	  data = client_socket.recv(1024)
+	  print "Received: %s" % data
 
-  if (data == "1"):    #if '0' is sent from the Android App, turn OFF the LED
-    client_socket.send("Recording Video!\n")
-    t = threading.Thread(target=vidworker)
-    threads.append(t)
-    t.start()
-  if (data == "2"):    #if '1' is sent from the Android App, turn OFF the LED
-    client_socket.send("Recording Data!\n")
-    t2 = threading.Thread(target=altworker)
-    threads.append(t2)
-    t2.start()
-  if (data == "q"):
-    print ("Quit")
-    client_socket.send("Quit command accepted: Shutting Down All Recording!")
-    break
-  client_socket.send('Altitude = {0:0.2f} m'.format(sensor.read_altitude() - initAlt) + '\n')
+	  if (data == "1"):    #if '0' is sent from the Android App, turn OFF the LED
+	    client_socket.send("Recording Video!\n")
+	    t = threading.Thread(target=vidworker)
+	    threads.append(t)
+	    t.start()
+	  if (data == "2"):    #if '1' is sent from the Android App, turn OFF the LED
+	    client_socket.send("Recording Data!\n")
+	    t2 = threading.Thread(target=altworker)
+	    threads.append(t2)
+	    t2.start()
+	  if (data == "q"):
+	    print ("Quit")
+	    client_socket.send("Quit command accepted: Shutting Down All Recording!")
+	    break
+	  client_socket.send('Altitude = {0:0.2f} m'.format(sensor.read_altitude() - initAlt) + '\n')
 
-camera.close()
-f.close()
+except KeyboardInterrupt:  
+    # here you put any code you want to run before the program   
+    # exits when you press CTRL+C  
+    camera.close()
+	f.close()
+	client_socket.close()
+	server_socket.close()
+    print "\n", counter # print value of counter
 
-client_socket.close()
-server_socket.close()
+finally:  
+    GPIO.cleanup() # this ensures a clean exit     
