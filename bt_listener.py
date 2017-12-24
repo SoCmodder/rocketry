@@ -29,9 +29,12 @@ advertise_service( server_socket, "RSV",
 
 threads = []
 
+f = open("bt-activated-data-recording.txt","w") 
+
+initAlt = sensor.read_altitude() 
+
 def altworker():
 	"""thread worker function"""
-	f = open("bt-activated-data-recording.txt","w") 
 	for i in range(0, 960):
 		f.write('======================================================================\n')
 		f.write('Timestamp: {:%Y-%m-%d %H:%M:%S}'.format(datetime.datetime.now()) + '\n')
@@ -40,6 +43,7 @@ def altworker():
 		f.write('Altitude = {0:0.2f} m'.format(sensor.read_altitude()) + '\n')
 		f.write('Sealevel Pressure = {0:0.2f} Pa'.format(sensor.read_sealevel_pressure()) + '\n')
 		f.write('======================================================================\n\n')
+		client_socket.send('Altitude = {0:0.2f} m'.format(sensor.read_altitude() - initAlt) + '\n')
 		time.sleep(1)
 	#Save/Close the file
 	f.close()
@@ -52,9 +56,7 @@ def vidworker():
 	camera.wait_recording(960)
 	camera.stop_recording()
 	client_socket.send("Finished Recording Video")
-	return
-
-initAlt = sensor.read_altitude()  
+	return 
  
 client_socket,address = server_socket.accept()
 print "Accepted connection from ",address
@@ -78,7 +80,6 @@ try:
 			print ("Quit")
 			client_socket.send("Quit command accepted: Shutting Down All Recording!")
 			break
-		client_socket.send('Altitude = {0:0.2f} m'.format(sensor.read_altitude() - initAlt) + '\n')
 
 except KeyboardInterrupt:  
 		# here you put any code you want to run before the program   
