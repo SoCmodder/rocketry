@@ -12,6 +12,15 @@ server_socket=bluetooth.BluetoothSocket( bluetooth.RFCOMM )
 port = 1
 server_socket.bind(("",port))
 server_socket.listen(1)
+
+uuid = "fa87c0d0-afac-11de-8a39-0800200c9a66"
+
+advertise_service( server_sock, "RSV",
+                   service_id = uuid,
+                   service_classes = [ uuid, SERIAL_PORT_CLASS ],
+                   profiles = [ SERIAL_PORT_PROFILE ], 
+#                   protocols = [ OBEX_UUID ] 
+                    )
  
 client_socket,address = server_socket.accept()
 print "Accepted connection from ",address
