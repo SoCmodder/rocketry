@@ -9,11 +9,6 @@ import logging
 
 sensor = BMP280.BMP280()
 
-GPIO.setmode(GPIO.BCM)     #programming the GPIO by BCM pin numbers. (like PIN40 as GPIO21)
-GPIO.setwarnings(False)
-GPIO.setup(LED,GPIO.OUT)  #initialize GPIO21 (LED) as an output Pin
-GPIO.output(LED,0)
-
 camera = picamera.PiCamera()
 camera.resolution = (1280, 720)
 
