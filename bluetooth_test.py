@@ -15,7 +15,7 @@ server_socket.listen(1)
 
 uuid = "fa87c0d0-afac-11de-8a39-0800200c9a66"
 
-advertise_service( server_sock, "RSV",
+advertise_service( server_socket, "RSV",
                    service_id = uuid,
                    service_classes = [ uuid, SERIAL_PORT_CLASS ],
                    profiles = [ SERIAL_PORT_PROFILE ], 
