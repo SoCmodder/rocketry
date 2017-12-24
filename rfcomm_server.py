@@ -24,7 +24,6 @@ while True:
 
 	try:
 	    data = client_sock.recv(1024)
-        if len(data) == 0: break
 	    print "received [%s]" % data
 
 		if data == '1':
