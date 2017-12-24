@@ -1,4 +1,4 @@
-import bluetooth
+from bluetooth import *
 import RPi.GPIO as GPIO        #calling for header file which helps in using GPIOs of PI
 LED=21
  
@@ -7,7 +7,7 @@ GPIO.setwarnings(False)
 GPIO.setup(LED,GPIO.OUT)  #initialize GPIO21 (LED) as an output Pin
 GPIO.output(LED,0)
  
-server_socket=bluetooth.BluetoothSocket( bluetooth.RFCOMM )
+server_socket=BluetoothSocket( RFCOMM )
  
 port = 1
 server_socket.bind(("",port))
