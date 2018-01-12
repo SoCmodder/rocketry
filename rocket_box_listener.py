@@ -76,7 +76,6 @@ except KeyboardInterrupt:
 		# exits when you press CTRL+C  
 	camera.close()
 	f.close()
-	print "\n", counter # print value of counter
 
 finally:  
 	GPIO.cleanup() # this ensures a clean exit     
