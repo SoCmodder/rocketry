@@ -2,5 +2,5 @@
 
 cd /
 cd home/pi/rocketry
-sudo python bt_listener.py
+sudo python bt_listener_disabled.py
 cd /
