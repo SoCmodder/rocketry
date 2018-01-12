@@ -23,6 +23,9 @@ f = open("box-recording.txt","w")
 
 initAlt = sensor.read_altitude() 
 
+socket.connect((bd_addr, port))
+socket.send("RSV BT Connection Established")
+
 def altworker():
 	"""thread worker function"""
 	for i in range(0, 960):
@@ -46,12 +49,7 @@ def vidworker():
 	camera.wait_recording(960)
 	camera.stop_recording()
 	socket.send("Finished Video Recording")
-	return 
- 
-sock.connect((bd_addr, port))
-print "Connected to: ",bd_addr
-
-socket.send("RSV BT Connection Established")
+	return
 
 try:
 	while 1:
