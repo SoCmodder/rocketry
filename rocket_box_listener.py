@@ -57,14 +57,14 @@ try:
 		print "Received: %s" % data
 
 		if (data == "1"):    #if '0' is sent from the Android App, turn OFF the LED
-			t = threading.Thread(target=vidworker)
-			threads.append(t)
-			t.start()
+			#t = threading.Thread(target=vidworker)
+			#threads.append(t)
+			#t.start()
 			socket.send("Video Recording Started")
 		if (data == "2"):    #if '1' is sent from the Android App, turn OFF the LED
-			t2 = threading.Thread(target=altworker)
-			threads.append(t2)
-			t2.start()
+			#t2 = threading.Thread(target=altworker)
+			#threads.append(t2)
+			#t2.start()
 			socket.send("Data Recording Started")
 		if (data == "q"):
 			print ("Quit")
@@ -74,8 +74,8 @@ try:
 except KeyboardInterrupt:  
 		# here you put any code you want to run before the program   
 		# exits when you press CTRL+C  
-	camera.close()
-	f.close()
+	#camera.close()
+	#f.close()
 
 finally:  
 	GPIO.cleanup() # this ensures a clean exit     
