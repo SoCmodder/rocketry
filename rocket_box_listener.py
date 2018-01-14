@@ -14,5 +14,5 @@ socket.send("RSV BT Connection Established")
 while 1:
 	#data = socket.recv(1024)
 	socket.send("Sending Data")
-	time.sleep(1)
+	time.sleep(10)
 	
