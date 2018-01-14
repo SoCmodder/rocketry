@@ -14,7 +14,10 @@ while 1:
 
 	try:
 		while 1:
-			socket.send("Sending Data")
+			try:
+				socket.send("Sending Data")
+			except BluetoothError:
+				socket.close()	
 			time.sleep(3)
 	finally:
 		socket.close()	
