@@ -9,7 +9,7 @@ bd_addr = "98:D3:31:50:3A:86" #Rocketbox Address
 port = 1
 
 socket.connect((bd_addr, port))
-socket.send("RSV BT Connection Established")
+socket.send("RSV Connected")
 
 while 1:
 	#data = socket.recv(1024)
